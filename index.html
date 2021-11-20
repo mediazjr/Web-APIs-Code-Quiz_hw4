@@ -10,19 +10,24 @@
 </head>
 
 <body>
-    <!-- element with "view highscores" and timer -->
+    <!-- nav with "view highscores" and timer -->
     <nav>
         <a href="highscores.html">View Highscores</a>
         <div id="timeLeft"></div>
     </nav>
 
-    <div>
-        <div>
+    <!-- div with h1, p, and ul elements -->
+
+    <div id="wrapper">
+        <div id="questionsDiv">
             <h1>Code Quiz Challenge</h1>
             <p>
                 Answer the following questions in the alloted time. Wrong answers will subtract 15 seconds from the timer.
             </p>
+            <ul id="optionsUl"></ul>
         </div>
+
+        <!-- start button for quiz -->
 
         <button id="startTimer">Start Code Quiz</button>
 
