@@ -50,9 +50,34 @@ var questions = [
 
 ];
 
-// variables for timer
+// variables for timer and to render questions upon button click
 var timeLeft = document.querySelector("#timeLeft");
-var timer = document.querySelector("startTimer")
+var timer = document.querySelector("startTimer");
+var timerHold = 0;
+var secondsLeft = 76;
+var wrongPenalty = 15;
+var questionsList = 0;
+var score = 0;
+var ulNew = document.createElement("ul");
 
 
-// start button add event listener
+
+// start button add event listener that displays countdown timer
+timer.addEventListener("click", function() {
+    // We are checking zero because its originally set to zero
+    if (timerHold === 0) {
+        timerHold = setInterval(function() {
+            secondsLeft--;
+            timeLeft.textContent = "Time: " + secondsLeft;
+
+            if (secondsLeft <= 0) {
+                clearInterval(timerHold);
+                allDone();
+                timeLeft.textContent = "Your time is up!";
+            }
+        }, 1000);
+    }
+    // render(questionsList);
+});
+
+//
