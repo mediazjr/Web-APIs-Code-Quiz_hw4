@@ -18,28 +18,28 @@ var questions = [
         options: ["numbers", "booleans", "strings", "all of the above"],
         answer: "all of the above"
 
-    }
+    },
 
     {
         question: "What is the best Method for debugging syntax errors in code?",
         options: ["console.log()", "git pull", "function ()", "for loop"],
         answer: "console.log()"
 
-    }
+    },
 
     {
         question: "What are the most common declared Javascript variables?",
         options: ["var", "let", "const", "all of the above"],
         answer: "all of the above"
 
-    }
+    },
 
     {
         question: "Commonly used data types DO NOT include:",
         options: ["strings", "booleans", "alerts", "numbers"],
         answer: "alerts"
 
-    }
+    },
 
     {
         question: "The condition in an if / else statement is enclosed within ____. ",
@@ -52,32 +52,36 @@ var questions = [
 
 // variables for timer and to render questions upon button click
 var timeLeft = document.querySelector("#timeLeft");
-var timer = document.querySelector("startTimer");
+var wrapper = document.querySelector("#wrapper");
+var questionsDiv = document.querySelector("#questionsDiv");
+var timer = document.querySelector("#startTimer");
+
+var ulNew = document.createElement("ul");
+
+
+
 var timerHold = 0;
 var secondsLeft = 76;
 var wrongPenalty = 15;
-var questionsList = 0;
+var questionsArray = 0;
 var score = 0;
-var ulNew = document.createElement("ul");
+
 
 
 
 // start button add event listener that displays countdown timer
 timer.addEventListener("click", function() {
-    // We are checking zero because its originally set to zero
     if (timerHold === 0) {
         timerHold = setInterval(function() {
             secondsLeft--;
-            timeLeft.textContent = "Time: " + secondsLeft;
+            timeLeft.textContent = "Seconds remaining: " + secondsLeft;
 
             if (secondsLeft <= 0) {
                 clearInterval(timerHold);
                 allDone();
-                timeLeft.textContent = "Your time is up!";
+                timeLeft.textContent = "Your time is now up!";
             }
         }, 1000);
     }
-    // render(questionsList);
-});
 
-//
+});
