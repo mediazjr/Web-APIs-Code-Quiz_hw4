@@ -93,16 +93,7 @@ function render(questionsArray) {
     ulNew.innerHTML = "";
     // loop through array 
     for (var i = 0; i < questions.length; i++) {
-        var displayQuestion = questions[questionsArray].title;
-        var displayOptions = questions[questionsArray].choices;
-        questionsDiv.textContent = displayQuestion;
-    }
 
-    displayOptions.forEach(function(newList) {
-        var listItem = document.createElement("li");
-        listItem.textContent = newList;
-        questionsDiv.appendChild(ulNew);
-        ulNew.appendChild(listItem);
 
 
 
