@@ -73,15 +73,38 @@ var score = 0;
 timer.addEventListener("click", function() {
     if (timerHold === 0) {
         timerHold = setInterval(function() {
+            // countdown from 76
             secondsLeft--;
             timeLeft.textContent = "Seconds remaining: " + secondsLeft;
 
             if (secondsLeft <= 0) {
                 clearInterval(timerHold);
-                allDone();
-                timeLeft.textContent = "Your time is now up!";
+                gameOver();
+                timeLeft.textContent = "Your time is now up! GAME OVER.";
             }
         }, 1000);
     }
-
+    render(questionsArray);
 });
+
+// render questions array function to display questions
+function render(questionsArray) {
+    questionsDiv.innerHTML = "";
+    ulNew.innerHTML = "";
+    // loop through array 
+    for (var i = 0; i < questions.length; i++) {
+        var displayQuestion = questions[questionsArray].title;
+        var displayOptions = questions[questionsArray].choices;
+        questionsDiv.textContent = displayQuestion;
+    }
+
+    displayOptions.forEach(function(newList) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newList;
+        questionsDiv.appendChild(ulNew);
+        ulNew.appendChild(listItem);
+
+
+
+    })
+}
