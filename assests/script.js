@@ -52,8 +52,8 @@ var questions = [
 
 // variables for timer and to render questions upon button click
 var timeLeft = document.querySelector("#timeLeft");
-var wrapper = document.querySelector("#wrapper");
-var questionsDiv = document.querySelector("#questionsDiv");
+var container = document.querySelector("#container");
+var questionsDiv = document.querySelector("#question-div");
 var timer = document.querySelector("#startTimer");
 
 var ulNew = document.createElement("ul");
@@ -77,25 +77,73 @@ timer.addEventListener("click", function() {
             secondsLeft--;
             timeLeft.textContent = "Seconds remaining: " + secondsLeft;
 
+            // call game over function if clock equals zero
             if (secondsLeft <= 0) {
-                clearInterval(timerHold);
                 gameOver();
-                timeLeft.textContent = "Your time is now up! GAME OVER.";
             }
         }, 1000);
     }
-    // render(questionsArray);
+    // call questions array function
+    render(questionsArray);
 });
 
 // render questions array function to display questions
-// function render(questionsArray) {
-//     questionsDiv.innerHTML = "";
-//     ulNew.innerHTML = "";
-//     // loop through array 
-//     for (var i = 0; i < questions.length; i++) {
+
+function render(questionsArray) {
+    questionsDiv.innerHTML = "";
+    ulNew.innerHTML = "";
+    //get rid of start button;
+    timer.style.display = "none";
+
+    // loop through array
+    for (var i = 0; i < questions.length; i++) {
+        var shownQuestion = questions[questionsArray].question;
+        var showAnswers = questions[questionsArray].options;
+        questionsDiv.textContent = shownQuestion
+    };
+    // question options
+    showAnswers.forEach(function(newLi) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newLi;
+        questionsDiv.appendChild(ulNew);
+        ulNew.appendChild(listItem);
+
+    })
+
+
+}
+
+// // game over function
+
+function gameOver() {
+    clearInterval(timerHold)
+    timeLeft.textContent = "GAME OVER!";
+
+
+}
+
+
+// // game start function
+
+// function startQuiz()
+
+
+// //  correct answer function
+
+// function correct()
+
+
+// // wrong answer function 
+
+// function incorrect()
+
+
+// function to save score to local storage
 
 
 
 
-//     })
-// }
+// function to clear score 
+
+
+// function to reset/play again

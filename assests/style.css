@@ -1,8 +1,19 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 button {
     border-radius: 8px;
 }
 
-#wrapper {
+h1 {
+    text-align: center;
+}
+
+#container {
     position: absolute;
     left: 30%;
     top: 20%;
@@ -19,7 +30,7 @@ button {
     color: white;
 }
 
-#questionsDiv {
+#question-div {
     margin: 20px;
 }
 
