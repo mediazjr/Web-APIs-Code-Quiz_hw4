@@ -84,18 +84,18 @@ timer.addEventListener("click", function() {
             }
         }, 1000);
     }
-    render(questionsArray);
+    // render(questionsArray);
 });
 
 // render questions array function to display questions
-function render(questionsArray) {
-    questionsDiv.innerHTML = "";
-    ulNew.innerHTML = "";
-    // loop through array 
-    for (var i = 0; i < questions.length; i++) {
+// function render(questionsArray) {
+//     questionsDiv.innerHTML = "";
+//     ulNew.innerHTML = "";
+//     // loop through array 
+//     for (var i = 0; i < questions.length; i++) {
 
 
 
 
-    })
-}
+//     })
+// }
