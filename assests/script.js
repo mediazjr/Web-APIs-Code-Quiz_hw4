@@ -56,13 +56,13 @@ var container = document.querySelector("#container");
 var questionsDiv = document.querySelector("#question-div");
 var timer = document.querySelector("#startTimer");
 
-var ulNew = document.createElement("ul");
+var ulNew = document.createElement("div");
 
 
 
 var timerHold = 0;
 var secondsLeft = 76;
-var wrongPenalty = 15;
+
 var questionsArray = 0;
 var score = 0;
 
@@ -89,7 +89,7 @@ timer.addEventListener("click", function() {
 
 // render questions array function to display questions
 
-function render(questionsArray) {
+function render() {
     questionsDiv.innerHTML = "";
     ulNew.innerHTML = "";
     //get rid of start button;
@@ -102,16 +102,41 @@ function render(questionsArray) {
         questionsDiv.textContent = shownQuestion
     };
     // question options
-    showAnswers.forEach(function(newLi) {
-        var listItem = document.createElement("li");
-        listItem.textContent = newLi;
-        questionsDiv.appendChild(ulNew);
-        ulNew.appendChild(listItem);
+    showAnswers.forEach(function(newBtn) {
+            var listItem = document.createElement("button");
+            listItem.textContent = newBtn;
+            listItem.addEventListener("click", evaluate)
+            questionsDiv.appendChild(ulNew);
+            ulNew.appendChild(listItem);
 
-    })
 
+        })
+        // this is what the forEach method does under the hood
+        //    for (let i = 0; i < showAnswers.length; i++) {
+        //        var listItem = document.createElement("button");
+        //       listItem.textContent = showAnswers[i];
 
 }
+
+
+// //  answer function
+
+function evaluate() {
+    console.log(this.textContent);
+    console.log(questionsArray);
+    questionsArray += 1;
+    // 
+    if (questionsArray === questions.length - 1) {
+        gameOver();
+
+    } else {
+        render();
+    }
+}
+
+
+
+
 
 // // game over function
 
@@ -119,23 +144,10 @@ function gameOver() {
     clearInterval(timerHold)
     timeLeft.textContent = "GAME OVER!";
 
-
 }
 
 
-// // game start function
 
-// function startQuiz()
-
-
-// //  correct answer function
-
-// function correct()
-
-
-// // wrong answer function 
-
-// function incorrect()
 
 
 // function to save score to local storage
@@ -143,7 +155,8 @@ function gameOver() {
 
 
 
-// function to clear score 
+
 
 
 // function to reset/play again
+// location.replace()

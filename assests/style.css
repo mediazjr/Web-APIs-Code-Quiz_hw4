@@ -13,6 +13,10 @@ h1 {
     text-align: center;
 }
 
+.questionButton {
+    border-radius: 20px;
+}
+
 #container {
     position: absolute;
     left: 30%;
@@ -39,36 +43,6 @@ h1 {
     color: black;
 }
 
-@media screen and (max-width: 786px) {
-    body {
-        max-width: 786px;
-    }
-    #wrapper {
-        position: absolute;
-        left: 20%;
-    }
-    a {
-        margin-left: 20%;
-    }
-    #playAgain {
-        position: relative;
-        left: 55%;
-    }
-    #clearScores {
-        position: relative;
-        right: 5%;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    body {
-        min-width: 640px;
-    }
-    #wrapper {
-        position: absolute;
-        left: 10%;
-    }
-    a {
-        margin-left: 10%;
-    }
+#playAgain {
+    float: right;
 }
